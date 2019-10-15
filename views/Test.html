@@ -1,0 +1,532 @@
+<!-- views/partials/head.ejs -->
+<!DOCTYPE html>
+<head>
+  
+<meta charset="UTF-8">
+<title>Ez password </title>
+
+<!-- CSS (load bootstrap from a CDN) -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="layout/w3.css">
+<script src="layout/jquery.min.js"></script>
+<script src="layout/language.js"></script>
+<script src="src/Background.js"> </script>
+<link rel="stylesheet" href="layout/body.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body style="background-color: black">
+    <div id="BackGround" style="width:100%">
+           
+        </div>
+     
+    <div id="header" class="w3-row " style="position:fixed; width:100%;z-index: 13">
+         <div style="position:absolute ;left:0;width:100%;background: black;height: 80px; opacity: 0.8"> <div class="w3-content w3-small w3-row w3-right "  style="top:60px" id="settingpannel" > 
+                
+                <select class="w3-small w3-black w3-text-white w3-col FwhenS" id="lang" onchange="SelectLanguage()">
+                    <option value="vi">Tiếng Việt</option>
+                    <option value="en">English</option>
+                </select> 
+            </div>  
+        
+        </div> 
+        <div class="w3-col LeftBlankCol " style="height:60px;background-color: #000">
+            <p> </p>
+        </div>
+        <div style="position: relative;height:60px" class="w3-col CenterCol w3-black">
+            <div class="w3-left"  style="position: absolute">
+                <img class="w3-col" src="images/WhiteInTrans.png" style="height:80px;width:80px;top:2px;position:absolute"/>
+                <h1 class="w3-text-white" style="width:50%;margin:0;position: relative; left:102px;top:5px">EasyKeyToPass</h1>
+                
+            </div>
+                  
+        </div>
+        <div class="w3-col LeftBlankCol " style="height:60px;background-color: #000">
+            
+        </div>
+    </div>
+
+    <div id="main" class="w3-row">       
+
+        <div class="w3-col LeftBlankCol ">
+            <p> </p>
+        </div>
+        <div class="w3-col CenterCol">
+            
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="w3-round-medium w3-transparent w3-center w3-black w3-col" style="opacity:0.9;box-shadow:1px 1px 8px #80FFFF,-1px -1px 8px #80FFFF" >
+                
+                <div style="position: relative;">
+                    <div class="w3-topnav w3-black w3-col w3-left" style=" opacity:0.9;box-shadow:1px 1px 2px #80FFFF ,-1px -1px 2px #80FFFF; padding: 0">
+
+                        <div onclick="BackToHome()" class="w3-btn w3-hover-white w3-hover-text-black" langkey="Home" style="margin: 3px 1px">Home</div>
+                        <a href="https://www.easykeytopass.com/about" style="text-decoration: none;"><span  class="w3-btn w3-hover-white w3-hover-text-black" langkey="About" style="margin: 3px 1px">About</span></a>
+                        <div  class="w3-btn w3-hover-white w3-hover-text-black" langkey="AddNewBlock" onclick="AddNewBlockOpen()" style="margin: 3px 1px" >Add New Block</div>       
+                    </div>
+                </div>
+                <div class="w3-col main-Side " >
+                    <p> </p>
+                </div>
+                <div class="w3-col main-Center w3-black" style="display:none" id="NewBlock">
+                    
+                    <div>
+                        <h4>BLOCK NAME</h4>
+                        <input class="w3-input w3-border w3-text w3-left-align w3-left w3-black w3-border-yellow" name="newBlockName" placeholder="block name" type="text" id="NewBlockName" langkey="holder-BlockName"/>                        
+                    </div>
+                    <br/>
+                    <p></p>
+                    <div id = "HintsBlock">
+                        <div>
+                            <div class="w3-col"> <p></p>
+                            </div>
+                            <div class="w3-left w3-large" ><span langkey="Hint">Hint</span> &#35;1:</div>
+                            <div class="w3-row w3-col" style="position:relative;">
+                                <input class="w3-input w3-border w3-text w3-left-align w3-left w3-transparent w3-text-white" name="hint" placeholder="The hint for your keyword" type="text" style="padding-right:50px" langkey="holder-hint"/>
+                                <div class="w3-row" style="position:absolute;top:0;right:0%;height:100%">
+                                    <input class="w3-btn w3-hover-gray w3-border w3-text-white "
+                                        style="height:100%; " type="button" value="&minus;" onclick="DeleteThisHint(this)"/>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>   
+                    <div>
+                        <p></p>
+                        <br/>
+                    </div>
+                    <div class="w3-col w3-row">
+                        <br/>
+                        <div class="w3-btn w3-hover-gray w3-text-white w3-left w3-border w3-border-green X-button" onclick="AddNewHintBlock()" langkey="AddNewHint">Add New Hint
+                        </div>
+                        <div class="w3-btn w3-hover-gray w3-text-white w3-right w3-border w3-border-green X-button" onclick="SubmitBlockName()" langkey="SubmitNewBlock">Submit Block
+                        </div>                        
+                    </div> 
+                    <div class="w3-col">
+                        <p></p>
+                    </div>  
+                    <div class="w3-col">
+                        <p></p>
+                    </div> 
+                </div>
+            
+                <div class="w3-col main-Center w3-black" id="MainBlock">
+                    
+                    <h1 langkey="GeneratePassword">GENERATE PASSWORD</h1>
+                    <br/>
+                    <div style="position:relative">
+                        <div class="w3-left w3-left-align" langkey="blockname">Block name:
+                        </div>
+                        <div class=" w3-border w3-left-align w3-left" style="width:100%;position:relative">
+                            <input class="w3-input w3-transparent w3-text-white w3-border-yellow" name="blockName" placeholder="Block Name" type="text" id="BlockName" value="defaultblock" onkeyup="filterFunction(event)" langkey="holder-BlockName" style="padding-right: 30px"/>
+                            <div style="position: absolute;right:0;width:30px;top:0;z-index:3;height: 99%;padding:4px 0 0 0;font-size:16px;background:transparent" class="w3-hover-border-aqua w3-hover-gray w3-center w3-btn" id="ShowFilterBtn">&#x25BD;
+                            </div> 
+                        </div> 
+                        <div class="w3-col w3-left w3-card-4" id="BlockFilter" style="position:absolute;z-index:1;opacity:0.9;display:none;overflow-y: scroll;top:52px;max-height:300px">
+                            <div class="w3-btn w3-left-align w3-hover-white w3-hover-text-black" onclick="selectABlockname(this)" onmousemove="ReForcusthis(this)" style="width:100%">defaultblock</div>       
+                 
+                        </div>
+                    </div>
+                    <br/>
+                    <div id ="keySector"> 
+                        <div>
+                            <div class="w3-col">
+                                <p></p> 
+                            </div>
+                            <div class="w3-left w3-large" ><span langkey="keyword">KEYWORD</span>:</div>
+                            <div class="w3-row w3-col" style="position:relative;">                            
+                                <input class="w3-input w3-border w3-text w3-left-align w3-left w3-transparent w3-text-white" name="keyword" placeholder="a familiar keyword" type="password" style="padding-right: 50px" langkey="holder-answer" onkeyup="KeywordKeyup(event)"/>
+                                <div class="w3-row btnShowHidePassword" style="position:absolute;top:0;right:0%;height:100%">
+                                    <img src="images/showcontent.png" alt="show the password" style="height:100%;width:50px" class="w3-hover-opacity" onclick="showContent(this)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="w3-col w3-row" id="AddKeyword" >
+                        <br/>
+                        <div class="w3-btn w3-hover-gray w3-text-white w3-left w3-border w3-border-green X-button" onclick="AddnewKeyword()" langkey="AddNewKeyword">Add New KEYWORD
+                        </div>
+                        <div class="w3-btn w3-hover-gray w3-text-white w3-right w3-border w3-border-green X-button" onclick="RemoveLastKeyword()" langkey="RemoveLastKeyword">Remove last KEYWORD
+                        </div>                                               
+                    </div> 
+                    <div class="w3-row w3-col">
+                        <div class="w3-col w3-row hide-small">  
+                            <p></p>    
+                        </div> 
+                        <div class="w3-btn w3-hover-gray w3-text-white w3-center w3-border w3-border-blue X-button" onclick="generatePassword()" langkey="GenPassword">Generate PASSWORD
+                        </div>                        
+                    </div>             
+
+                    <br />
+                    <div class="w3-col w3-row hide-small">  
+                        <p></p>  
+                        <span langkey="NoOfChar">Number of characters:</span>
+                        <input type="number" class="w3-cell w3-border  w3-border-green w3-center" id="quantity" min="6" max="32" step="1" value="32" style="width:50px;height:40px;background:black;color:white;border:none;" onkeyup="slicePassword()"/>
+                        <input type="hidden" id="hiddenpassbox"/>
+                        <p id="InvalidNoOfChar" class="w3-text-red w3-tiny " style="display:none" langkey="InvalidNoOfCharWarning">Invalid Number of characters. Number of characters must be between 6 and 32</p>     
+                    </div> 
+                    <div>
+                        <div class="w3-col">
+                            <p></p>
+                        </div>
+                        <div class="w3-col w3-left w3-left-align w3-large w3-threequarter" langkey="YourPassword">Your Password:</div>
+                          
+                        
+                        <div class="w3-row w3-col" style="position:relative;">
+                        
+                            <input class="w3-input w3-border w3-text w3-left-align w3-left w3-transparent w3-text-white " placeholder="Your Password displayed here" style="padding-right: 50px" id="encryptedPassword" readonly="true" type="password" langkey="holder-DisplayPassword"/>
+                            <div class="w3-row" style="position:absolute;top:0;right:0%;height:100%">
+                                <img src="images/showcontent.png" alt="show the password" style="height:100%;width:50px" class="w3-hover-opacity" onclick="showContent(this)">
+                                <div class="w3-col w3-right w3-right-align material-icons" style="font-size: 25px;cursor:pointer;display: none; width:30px;top:5px; position:relative;right:5px" onmousedown="CopyKeyDown()" onmouseup="CopyKeyUp()" id="ContentCopy" >content_copy</div> 
+
+                        </div>
+                    </div>   
+                    
+                    <div class="w3-col">
+                        <p></p>
+                    </div>  
+                    <div class="w3-col">
+                        <p></p>
+                    </div> 
+                    </div>
+
+                 </div>
+                <div class="w3-col main-Side ">
+                    <p> </p>
+                </div>
+                
+            </div>
+          
+        </div>
+        <div class="w3-col RightBlankCol">
+            <p> </p>
+        </div>
+        
+    </div>
+    <br/>
+    <br/>
+<!--     
+    <div  id="social" class="w3-center" style="position: fixed;bottom:0;width:100%;z-index: 14">
+        <div class=" w3-center">
+            <a href="http://www.facebook.com/sharer.php?u=https://www.easykeytopass.com/" target="_blank" class="popup">
+                 
+                <i class="w3-text-gray w3-small popuptext"  id="facebook">Share on facebook</i>
+                <i class="fa fa-facebook-official" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="facebook"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Visiting%20https%3A%2F%2Fwww.easykeytopass.com" target="_blank" class="popup">
+                <i class="fa fa-twitter-square" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="twiter"></i>
+                <i class="w3-text-gray w3-small popuptext" id="twiter">Share on twiter</i>
+            </a>
+            <a href="https://plus.google.com/share?url=https://www.easykeytopass.com" target= "_blank" class="popup">
+            <i class="fa fa-google-plus-square " style="font-size:36px; color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="google"></i>
+            <i class="w3-text-gray w3-small popuptext" id="google">Share on Google plus</i>
+            </a>
+            <a href="https://www.facebook.com/easykeytopass" target="_blank" class="popup">
+                <i class="fa fa-thumbs-o-up" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="likefacebook"></i>
+                <i class="w3-text-gray w3-small popuptext" id="likefacebook">Like us on facebook</i>
+            </a>
+        </div>
+        
+    </div> -->
+    <!-- <div style="position: fixed;top:40px;width:40px;z-index: 14;opacity:0.5;cursor:pointer; margin: 0 0 0 5px" class="w3-black">
+        <i class="fa fa-navicon " style="font-size:36px;color:white;" ></i>
+    </div> -->
+    <div  id="menu-right" class=" menu-left" style="position: fixed;top:100px;width:40px;z-index: 14">
+        <div class=" w3-center" id="menu" style="display: none">
+            <a class="popup-right" onmouseover="Popup(this)" onmouseout="Popdown(this)" href="#main" onclick="BackToHome()">
+                <i class="w3-text-gray w3-small popuptext-right"  id="home-menu" langkey="Home">Home</i>
+                <i class="fa fa-home" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)"></i>
+            </a>
+            <div class="popup-right" onmouseover="Popup(this)" onmouseout="Popdown(this)" >
+                <i class="w3-text-gray w3-small popuptext-right"  id="About-menu" style="text-decoration: none;" langkey="About">About</i>
+                <a class="fa fa-info-circle" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" a href="https://www.easykeytopass.com/about" onmouseover="Popup(this)" onmouseout="Popdown(this)"></a>
+            </div>
+            <div class="popup-right" onmouseover="Popup(this)" onmouseout="Popdown(this)" onclick="window.scrollTo(0,0)">
+                <i class="w3-text-gray w3-small popuptext-right"  id="Add-menu" langkey="AddNewBlock" >Add new Block</i>
+                <i class="fa fa-plus" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" onclick="AddNewBlockOpen()"></i>
+            </div>
+            <div class="popup-right" onmouseover="Popup(this)" onmouseout="Popdown(this)" >
+                <i class="w3-text-gray w3-small popuptext-right"  id="guide-menu">Guide</i>
+                <a class="fa fa-book" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" href="#BeforeHelp"></a>
+            </div>
+            <div class="popup-right">
+                <i class="w3-text-gray w3-small popuptext-right"  id="QA-menu">Q&amp;A</i>
+                <a class="fa fa-question" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" href="#LastHelp"></a>
+            </div>
+        </div>
+        <br/>
+        <div class=" w3-center" id="social">
+            <a href="http://www.facebook.com/sharer.php?u=https://www.easykeytopass.com/" target="_blank" class="popup-right">
+                 
+                <i class="w3-text-gray w3-small popuptext-right"  id="facebook-right">Share on facebook</i>
+                <i class="fa fa-facebook-official" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="facebook-right"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Visiting%20https%3A%2F%2Fwww.easykeytopass.com" target="_blank" class="popup-right">
+                <i class="fa fa-twitter-square" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="twiter-right"></i>
+                <i class="w3-text-gray w3-small popuptext-right" id="twiter-right">Share on twiter</i>
+            </a>
+            <a href="https://plus.google.com/share?url=https://www.easykeytopass.com" target= "_blank" class="popup-right">
+            <i class="fa fa-google-plus-square " style="font-size:36px; color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="google-right"></i>
+            <i class="w3-text-gray w3-small popuptext-right" id="google-right">Share on Google plus</i>
+            </a>
+            <a href="https://www.facebook.com/easykeytopass" target="_blank" class="popup-right">
+                <i class="fa fa-thumbs-o-up" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="likefacebook-right"></i>
+                <i class="w3-text-gray w3-small popuptext-right" id="likefacebook-right">Like us on facebook</i>
+            </a>
+        </div>
+        
+    </div>
+
+    <div class="w3-modal" style="opacity:0.9;display:none;" id="modal">
+        <div class="w3-modal-content w3-center w3-black w3-animate-zoom " style="box-shadow:1px 1px 8px #80FFFF,-1px -1px 8px #80FFFF;top:200px">
+            <div class="material-icons w3-spin" style="font-size:120px;height:120px">autorenew</div>
+            <div class="w3-large" id="waiting" langkey="waiting">Waiting</div>
+            <div class="w3-center w3-green w3-large w3-col" id="AddNewlogInfo" style="width:100%;display:none" langkey="SubmitNewBlockSuccess">Submit New Block Successfull!
+            </div>
+        </div>
+        <br/>
+    </div>  
+    <div class = "w3-row w3-boder w3-center" id="BeforeHelp" > <p style="color:#80FFEE;margin: 35px">******************************</p>
+    </div>  
+    <div class="w3-row " id="Help"  >
+        
+        <div class="help-side w3-col">
+            <p></p>
+        </div>
+        <div class="w3-col help-main" style="text-align: center;background-color: #e2c46a">
+            <br/>
+            <div style="text-align: center" >                     
+                <h3 style="padding:5px 10px;position: relative;background-color: #e2c46a;text-align: center;display: inline-block "
+                    ><b langkey="PasswordGenerator">TÍNH NĂNG</b></h3>
+                <div style="padding:5px 10px;margin-top: -55px"><hr/></div>
+            </div>
+            <br/>
+            <div class="w3-row">
+                <div class="w3-col l6 m12 s12 w3-left-align"> 
+                
+                    <h4 style="display:inline-block;padding:
+                        5px 10px;margin-top: -25px;text-align: center;
+                    margin-left:20px"><b langkey="SimpleHead">Tạo Mật Khẩu Đơn Giản</b></h4>
+                    
+                    <div style="margin: 10px 10px 0 30px">
+                        <b>Password Generator</b> được tạo ra với mục đích mã hoá mật khẩu của bạn bằng những từ khoá quen thuộc với bạn
+                        <br/>
+                        Với thiết kế trang chủ đơn giản,bạn có thể tạo ra một mật khẩu đủ phức tạp với độ bảo mật cao mà lại vô cùng dễ nhớ.<br/>
+                        Để bắt đầu, hãy tạo một mật khẩu đơn giản nhất với những thiết lập mặc định<br/>
+                        <ul>
+                            <li>Nhập một từ khoá vào ô "Từ khoá".<br/>( Bạn có thể nhập số 1, họ của bạn, tên chú cún của em gái hay ngày sinh nhật của con gái bạn, nhưng đừng để trống)</li>
+                            <li>Bấm vào nút nhất &nbsp;
+                                <span class="w3-btn w3-black w3-hover-white w3-hover-text-black w3-text-white">Tạo mật khẩu</span>&nbsp; và đợi trong giây lát</li>
+                            <li>Mật khẩu của bạn được tạo và hiện thị bên dưới.<br/>
+                            Nhấp vào nút nhấn &nbsp;<span class=" material-icons w3-btn w3-black">content_copy</span> &nbsp;để copy mật khẩu vào clipboard và dán chúng vào paswordbox trên trang web hay ứng dụng của bạn.
+                            </li>
+                        </ul>
+                        <div class=" w3-pale-blue w3-leftbar w3-card-4 w3-border-blue w3-panel w3-round-small" style="width:100%">
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Chúng tôi muốn giữ đúng tính chất của mật khẩu vì thế các từ khoá phân biệt chữ hoa chữ thường, có thể sử dụng chữ số và các kí hiệu đặc biệt. <br/>
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Bạn có thể sử dụng mật khẩu vừa được tạo ra để mã hoá thêm 1 vài lần nữa để tăng thêm niềm tin về sự bảo mật.<br/>
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Bạn cũng có thể thêm từ khoá bằng cách bấm nút &nbsp;<span class="w3-btn w3-black w3-hover-white w3-hover-text-black w3-text-white">Thêm từ khoá</span>&nbsp;. Bằng cách này mật khẩu của bạn được mã hoá từ nhiều từ khoá kết hợp với nhau. Nhưng hãy nhớ thứ tự của những từ khoá đó cho lần sử dụng sau.<br/>
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Nút nhấn &nbsp;<span class="w3-btn w3-black w3-hover-white w3-hover-text-black w3-text-white">Xoá từ khoá</span>&nbsp; dùng để xoá từ khoá cuối cùng khi bạn lỡ thêm quá nhiều từ khoá mà không thể nhớ thứ tự của chúng<br/>
+                        </div>
+                    </div>
+                </div>
+                <div  class="w3-col l6 m12 s12 w3-center w3-right"> 
+                    <br/>
+                    <br/>
+                    <img src="images/Page.png" class="w3-center" style="max-width: 90%; " />
+                    <br/>
+                </div>
+            </div>
+            <br/>        
+            <hr/>  
+            <br/>    
+            <div class="w3-row">                
+                <div class="w3-col w3-left-align l6 m12 s12 w3-right"> 
+                    
+                    <h4 style="display:inline-block;padding:
+                        5px 10px;margin-top: -25px;text-align: center;
+                    margin-left:20px"><b langkey="HintsHead">Tạo Mật Khẩu Từ Các Gợi Ý</b></h4>
+                    
+                    <div style="margin: 10px 10px 0 30px">
+                        Mặc định, <b>Password Generator</b> sẽ sử dụng defaultblock để tạo mật khẩu và sử dụng các khoá ngẫu nhiên của bạn.<br/>
+                        Điều này sẽ rất phiền phức nếu như bạn không nhớ được từ khoá bạn đã điền là gì.<br/>
+                        Các khối được định nghĩa sẵn chứa một chuỗi các gợi ý dến các từ khoá của bạn. Thường là các gợi ý liên quan đến những thông tin, sở thích cá nhân. Bạn có thể thành thật trả lời hoặc không. Nhưng hãy nhớ câu trả lời đó.<br/>
+                        Bạn có thể nhập tên các khối vào ô trống <input placeholder="Tên Khối" class="w3-black"/> và bấm phím "Enter" hoặc chọn trong danh sách được số xuống bên dưới. Danh sách này sẽ được lọc theo những gì bạn đã nhập vào ô <input placeholder="Tên Khối" class="w3-black"/>
+                        Các gợi ý trong danh khối sẽ được hiện ra thay thế cho các từ khoá. Diền câu trả lời của bạn và chọn <span class="w3-btn w3-black w3-hover-white w3-hover-text-black w3-text-white">Tạo mật khẩu</span> như hướng dẫn ở trên.
+                        <div class=" w3-pale-blue w3-leftbar w3-card-4 w3-border-lime w3-panel w3-round-small" style="width:100%">
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Các gợi ý luôn hiện thị đúng thứ tự trong mỗi lần tạo mật khẩu.Vì thế việc của bạn là hãy trả lời cho thật đúng với những lần trước đó<br/>
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Các khối được tạo sẵn với chuỗi câu hỏi cố định nên bạn không thể thêm hoặc bớt từ khoá được. Tuy nhiên bạn có thể tạo một khối mới cho riêng bạn &nbsp;<br/>
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Cũng giống như từ khoá. Câu trả lời cho mỗi gợi ý cũng phân biệt chữ hoa và chữ thường.<br/>
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Mặc dù cùng các gợi ý, câu trả lời của bạn giống nhau cả về nội dung lẫn thứ tự, nhưng nếu bạn sử dụng 2 khối khác nhau thì mật khẩu được tạo ra cũng sẽ khác nhau. Vì thế, Bạn phải nhớ tên khối như là một từ khoá riêng tư không có gợi ý<br/>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3-col l6 m12 s12 w3-center"> 
+                    <br/>
+                    <br/>
+                    <img src="images/ChooseBlockName.png" class="w3-center" style="max-width: 90%;" />
+                    <br/>
+                </div>
+                <br/>
+            </div>
+            <br/>
+            <hr/>
+            <br/>
+
+            <div class="w3-row">
+                <div class="w3-col l6 m12 s12 w3-left-align"> 
+                    
+                    <h4 style="display:inline-block;padding:
+                        5px 10px;margin-top: -25px;text-align: center;
+                    margin-left:20px"><b langkey="SimpleHead">Tạo Khối Mới</b></h4>
+                    
+                    <div style="margin: 10px 10px 0 30px">
+                        Nếu bạn thấy các khối gợi ý được dựng sẵn khó nhớ cả về tên khối lẫn các chuỗi gợi ý, thì tại sao bạn không tạo một khối mới với chuỗi gợi ý của bạn.
+                        <ul>
+                            <li>Chọn <div  class="w3-btn w3-hover-white w3-hover-text-black" langkey="AddNewBlock" style="margin:2px">Thêm Khối Mới</div> &nbsp; Giao diện trang web sẽ thay đôei để bạn thêm một khối theo ý thích của riêng bạn.</li>
+                            <li>Chọn <div  class="w3-btn w3-hover-white w3-hover-text-black" style="margin:2px">Thêm gợi ý</div> &nbsp; để thêm các gợi ý vào chuỗi câu hỏi của bạn.</li>
+                            <li>Chọn <div  class="w3-btn w3-hover-white w3-hover-text-black w3-border" style="margin:2px">-</div>&nbsp; phía sau mỗi gợi ý để xoá bỏ gợi ý đó trong chuỗi câu hỏi của bạn.</li>
+                            <li>Chọn <div  class="w3-btn w3-hover-white w3-hover-text-black w3-border" style="margin:2px">Lưu Khối</div>&nbsp; để lưu chuỗi câu hỏi của bạn lên hệ thống của chúng tôi.</li>
+                        </ul>
+                        <div class=" w3-pale-blue w3-leftbar w3-card-4 w3-border-teal w3-panel w3-round-small" style="width:100%">
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Tên khối là duy nhất nên bạn không thể lưu khối nếu trùng tên với một khối có sẵn trên hệ thống<br/>
+                            <span class="w3-large">&#x2A;</span> &nbsp;
+                            Vì lý do tà chính nên dung lượng lưu trữ có hạn. Vì thế chúng tôi phải xoá bỏ những khối đã lâu không được sử dụng. &nbsp;<br/>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+                <div  class="w3-col m12 s12 l6 w3-center"> 
+                    <br/>
+                    <br/>
+                    <img src="images/NewBlock.png" class="w3-center" style="max-width: 90%; " />
+                    <br/>
+                </div>
+            </div>
+            <div  id="LastHelp">
+                <br/>     
+                <br/> 
+            </div>     
+        
+        </div>    
+        
+        <div class="help-side w3-col">
+            <p></p>
+        </div>
+    </div>
+    <div class = "w3-boder w3-center" > <p style="color:#80FFEE;margin: 25px">******************************</p>
+    </div>
+    <div class="w3-row ">  
+        <div class="help-side w3-col">
+        <p></p>
+        </div>  
+        <div class="w3-col help-main" style="background-color: #669999">
+            
+            
+            <div style="text-align: center;" >                     
+                <h3 style="padding:5px 10px;position: relative;text-align: center;display: inline-block;background-color: #669999 "
+                    ><b langkey="PasswordGenerator">CÂU HỎI THƯỜNG GẶP</b></h3>
+                <div style="padding:5px 10px;margin-top: -55px"><hr/></div>
+            </div>
+            
+            
+            <br/>
+            <div style="margin-left:50px;margin-right:50px;">
+                <div class="w3-left-align w3-border-bottom" style="width:100%;background-color: #101010;color:#FFFFFF;cursor: pointer;padding: 6px 16px" onclick="$(this).next().toggle(300)">1. Mục đích của trang web này là gì?</div>
+                <div class="w3-left-align" style="display:none;margin: 5px">Answer by Hung</div>            
+                <div class="w3-left-align w3-border-bottom" style="width:100%;background-color: #101010;color:#FFFFFF;cursor: pointer;padding: 6px 16px"  onclick="$(this).next().toggle(300)">2. Mật khẩu của tôi có thể bị trùng với người khác không?</div>
+                <div class="w3-left-align" style="display:none;margin: 5px">Answer by Hung</div>
+                <div class="w3-left-align w3-border-bottom" style="width:100%;background-color: #101010;color:#FFFFFF;cursor: pointer;padding: 6px 16px" onclick="$(this).next().toggle(300)">3. Nếu ai đó biết được câu trả lời của tôi trong chuỗi gợi ý thì họ có thể lấy được mật khẩu của tôi không?</div>
+                <div class="w3-left-align" style="display:none;margin: 5px">Answer by Hung</div>
+                <div class="w3-left-align w3-border-bottom" style="width:100%;background-color: #101010;color:#FFFFFF;cursor: pointer;padding: 6px 16px" onclick="$(this).next().toggle(300)">4. Khi khối gợi ý của tôi bị xoá, tôi phải làm gì?</div>
+                <div class="w3-left-align" style="display:none;margin: 5px">Answer by Hung</div>
+                <div class="w3-left-align w3-border-bottom" style="width:100%;background-color: #101010;color:#FFFFFF;cursor: pointer;padding: 6px 16px" onclick="$(this).next().toggle(300)">5. Chuyện gì xảy ra nếu tôi không nhớ đã dùng khối nào để tạo mật khẩu?</div>
+                <div class="w3-left-align" style="display:none;margin: 5px">Answer by Hung</div>
+                <div class="w3-left-align w3-border-bottom" style="width:100%;background-color: #101010;color:#FFFFFF;cursor: pointer;padding: 6px 16px" onclick="$(this).next().toggle(300)">6. Chuyện gì xảy ra nếu tôi quên câu trả lời?</div>
+                <div class="w3-left-align" style="display:none;margin: 5px">Answer by Hung</div>
+                <div class="w3-left-align w3-border-bottom" style="width:100%;background-color: #101010;color:#FFFFFF;cursor: pointer;padding: 6px 16px" onclick="$(this).next().toggle(300)">7. Trang web có thu thập  mật khẩu của tôi cũng như thông tin cá nhân qua các câu hỏi không?</div>
+                <div class="w3-left-align" style="display:none;margin: 5px">Answer by Hung</div> 
+                <br/>         
+            </div>    
+        </div>
+        <div class="help-side w3-col">
+        <p></p>
+        </div> 
+    </div>    
+        
+        <!-- footer -->
+    <div class="w3-row">
+        <div class="help-side w3-col">
+            <p></p>
+        </div>
+         <div class = "w3-col" style="height:50px"> <p></p>
+         </div>
+         <div class = "w3-col w3-black" style="height:20px;opacity: 0.8"> <p></p>
+         </div>
+        <div class="w3-row w3-col w3-black w3-left-align" style="width:100%;">
+            
+            <div class="w3-col" style="width: 5%">
+                <p> </p>
+            </div>
+            <div class="w3-col" style="width: 25%">
+                <br />
+                <a href="/" target="_blank"><img src="images/WhiteInTrans.png" style="height: 50px;"></a>
+                <p class="w3-small" langkey="footer-description-1">Professional password from easy to remember keywords <br/>  </p>
+            </div>
+            <div class="w3-col w3-center" style="width: 40%">
+                <p langkey="Powered-By"> Powered by </p>
+                    <p>
+                        <a href="https://nodejs.org/en/" target="_blank" ><img src="images/nodejs-new-pantone-white.png" style="height: 40px;margin-left:20px" ></a>
+                        <a href="https://heroku.com" target="_blank" ><img src="images/heroku.svg" style="height: 40px;margin-left:20px" ></a>
+                    </p>
+
+                    <p>
+                        <a href="https://www.w3schools.com/w3css/" target="_blank"><img src="images/w3css.gif" style="height: 40px;margin-left:20px" ></a>
+                        <a  href="https://jquery.com/" target="_blank"><img src="images/jquery-logo.png" style="height: 40px;margin-left:20px"></a>
+                    </p>
+            </div>
+            <div class="w3-col" style="width: 5%">
+                <p> </p>
+            </div>
+            <div class="w3-col w3-right-align" style="width: 20%">
+            
+                <br />
+                <br />
+                <div class="w3-row">
+                    <div class="w3-col" style="width: 25%">
+                        <p></p>
+                    </div>
+                    <table class="w3-table w3-small" >
+                        <tr>
+                            <td></td>
+                            <td langkey="copyleft-1">Developed by:</td>
+                            <td class="w3-right-align"><a href="mailto:sirhung1993@gmail.com"> Bui Viet Hung <span class="copyleft">&copy;</span></a></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td langkey="copyleft-2">Design by:</td>
+                            <td class="w3-right-align"><a  href="mailto:loc.nguyenxuan@vn.bosch.com">Nguyen Xuan Loc &clubs; </a><br /></td>
+                        </tr>
+                    </table> 
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- <div class="g-plus w3-center" data-action="share" href="https://easykeytopass.com"></div> -->
+
+
+</body>

@@ -1,0 +1,457 @@
+#settingpannel
+{
+    position: absolute;
+    top:20px;
+    right:5px
+}
+.card {
+    box-shadow: 2px 2px 8px 2px rgba(255,255,255,0.3);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+}
+.popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.bottompopup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.main-next .main-previous {
+    opacity: 0.3;
+    background-color: red
+}
+
+.Next .Preview:hover{
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* The actual popup */
+.popup .popuptext {
+    display: none;
+    width: 200px;
+    background-color: #FFF;
+    color: #0F0;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+}
+
+.bottompopup .bottompopuptext {
+    display: none;
+    width: 200px;
+    background-color: #FFF;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -100px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #FFF transparent transparent transparent;
+}
+
+.bottompopup .bottompopuptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color:  transparent transparent #FFF transparent;
+}
+/* Toggle this class - hide and show the popup */
+.popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+ .a:hover,a:-webkit-any-link {
+    text-decoration: none
+}
+.a{
+    text-decoration: none
+}
+.popup-right {
+    position: relative;
+    display: inline-block;
+    
+}
+.popuptext-right {
+    border: 1px solid black;
+}
+.popup-right .popuptext-right {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: #0F0;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+}
+
+.popup-right .popuptext-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+}
+.popup-right:hover .popuptext-right {
+    visibility: visible;
+}
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0.3;} 
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0.3;}
+    to {opacity:1 ;}
+}
+
+@media screen and (max-width: 480px) 
+{
+    .about-LeftBlankCol
+    {
+        display: none;
+    }
+    .about-CenterCol
+    {
+        width:100%;
+    }
+    .about-Side
+    {
+        display: none;
+        
+    }
+    .about-Center
+    {
+        width: 100%;
+    }
+    .LeftBlankCol
+    {
+        display: none;
+    }
+    .CenterCol
+    {
+        width:100%;
+    }
+    .main-Side
+    {
+        display: none;
+        
+    }
+    .main-Center
+    {
+        width: 100%;
+    }
+    .X-button
+    {
+        width: 100%;
+    }
+    .hide-small
+    {
+        display: none
+    }
+    .help-main
+    {
+        width:90%;
+        margin-left: 40px;
+        margin-right: 40px;
+    } 
+    .help-side
+    {
+        display: none
+    }
+}
+
+@media only screen and (min-width: 480px) and (max-width:640px)
+{
+    .about-LeftBlankCol
+    {
+        display: block;
+        width: 5%;
+    }
+    .about-CenterCol
+    {
+        width: 90%;
+    }
+    .about-Side
+    {
+        display: block;
+        width: 5%
+    }
+    .about-Center
+    {
+        width: 90%;
+    }
+    .LeftBlankCol
+    {
+        display: block;
+        width: 5%;
+    }
+    .CenterCol            
+    {
+        width: 90%;
+    }
+    .main-Side
+    {
+        display: block;
+        width: 5%
+    }
+    .main-Center
+    {
+        width: 90%;
+    }      
+    .X-button
+    {
+        width: 100%;
+    }   
+    .hide-small
+    {
+        display: none
+    }
+    .help-main
+    {
+        width:90%;
+        margin-left: 40px;
+        margin-right: 40px;
+    }    
+    .help-side
+    {
+        display: none
+    }
+}
+@media only screen and (min-width: 640px) and (max-width:860px)
+{
+    .about-LeftBlankCol
+    {
+        display: block;
+        width: 10%;
+    }
+    .about-CenterCol
+    {
+        width:80%;
+    }
+    .about-Side
+    {
+        display: block;
+        width: 5%
+    }
+    .about-Center
+    {
+        width: 90%;
+    }
+    .LeftBlankCol
+    {
+        display: block;
+        width: 10%;
+    }
+    .CenterCol
+    {
+        width:80%;
+    }
+    .main-Side
+    {
+        display: block;
+        width: 10%
+    }
+    .main-Center
+    {
+        width: 80%;
+    }
+    .help-main
+    {
+        width:100%;   
+        margin-left: 40px;
+        margin-right: 40px;
+    }    
+    .help-side
+    {
+        display: none
+    }
+}
+@media only screen and (min-width: 860px) and (max-width:1020px)
+{
+    .about-LeftBlankCol
+    {
+        display: block;
+        width: 10%;
+    }
+    .about-CenterCol
+    {
+        width:80%;
+    }
+    .about-Side
+    {
+        display: block;
+        width: 5%
+    }
+    .about-Center
+    {
+        width: 90%;
+    }
+    .LeftBlankCol
+    {
+        display: block;
+        width: 15%;
+    }
+    .CenterCol
+    {
+        width:70%;
+    }
+    .main-Side
+    {
+        display: block;
+        width: 10%
+    }
+    .main-Center
+    {
+        width: 80%;
+    }
+    .help-main
+    {
+        width:84%;
+    }
+    
+    .help-side
+    {
+        width: 8%;
+    }
+}
+@media only screen and (min-width: 1020px) and (max-width:1280px)
+{
+    .about-LeftBlankCol
+    {
+        display: block;
+        width: 10%;
+    }
+    .about-CenterCol
+    {
+        width:80%;
+    }
+    .about-Side
+    {
+        display: block;
+        width: 5%
+    }
+    .about-Center
+    {
+        width: 90%;
+    }
+    .LeftBlankCol
+    {
+        display: block;
+        width: 20%;
+    }
+    .CenterCol
+    {
+        width:60%;
+    }
+    .main-Side
+    {
+        display: block;
+        width: 15%
+    }
+    .main-Center
+    {
+        width: 70%;
+    }
+    .help-main
+    {
+        width:80%;
+    }    
+    .help-side
+    {
+        width: 10%
+    }
+}
+@media only screen and (min-width:1280px)
+{
+    .about-LeftBlankCol{
+        display: block;
+        width: 10%;
+    }
+    .about-CenterCol
+    {
+        width:80%;
+    }
+    .about-Side
+    {
+        display: block;
+        width: 5%
+    }
+    .about-Center
+    {
+        width: 90%;
+    }
+    .LeftBlankCol
+    {
+        display: block;
+        width: 25%;
+    }
+    .CenterCol
+    {
+        width:50%;
+    }
+    .main-Side
+    {
+        display: block;
+        width: 15%
+    }
+    .main-Center
+    {
+        width: 70%;
+    }
+    .help-side
+    {
+        width: 10%;
+    }
+    .help-main
+    {
+        width:80%;
+    }
+}
+
