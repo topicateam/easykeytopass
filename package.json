@@ -1,0 +1,41 @@
+{
+  "name": "propassword",
+  "version": "1.0.0",
+  "description": "High secure password but easy to remember",
+  "main": "main.js",
+  "scripts": {
+    "test": "mocha ./test/test.js"
+  },
+  "engines" : {
+    "node": "8.1.4"
+  }, 
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/sirhung1993/propassword.git"
+  },
+  "keywords": [
+    "more",
+    "secure",
+    "password"
+  ],
+  "author": "Bui Viet Hung",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sirhung1993/propassword/issues"
+  },
+  "homepage": "https://github.com/sirhung1993/propassword#readme",
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "ejs": "^0",
+    "express": "^4.15.3",
+    "express-session": "^1.14.2",
+    "fs": "0.0.1-security",
+    "helmet": "^3.5.0",
+    "md5": "^2.2.1",
+    "multer": "^1.2.0",
+    "mysql": "^2.13.0",
+    "redis": "^2.7.1"
+  }
+}
