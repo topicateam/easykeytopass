@@ -11,6 +11,10 @@
         <br />
         <a href="/" target="_blank"><img src="views/images/WhiteInTrans.png" style="height: 50px;"></a>
         <p class="w3-small" langkey="footer-description-1">Professional password from easy to remember keywords <br/>  </p>
+        <a class="popup-right" onmouseover="Popup(this)" onmouseout="Popdown(this)" href="#main" onclick="BackToHome()">
+            <i class="w3-text-gray w3-small popuptext-right"  id="home-menu" langkey="Home">Home</i>
+            <i class="fa fa-home" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)"></i>
+        </a>
     </div>
     <div class="w3-col s6 m6 l3 w3-small w3-right-align w3-right" >
     
@@ -37,8 +41,24 @@
             <a  href="https://jquery.com/" target="_blank"><img src="views/images/jquery-logo.png" style="height: 40px;margin-left:20px"></a>
         </p>
     </div>
- 
-    
-    
+    <div class=" w3-center" id="social">
+            <a href="http://www.facebook.com/sharer.php?u=https://www.easykeytopass.com/" target="_blank" class="popup-right">
+                 
+                <i class="w3-text-gray w3-small popuptext-right"  id="facebook-right">Share on facebook</i>
+                <i class="fa fa-facebook-official" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="facebook-right"></i>
+            </a>
+            <a href="https://twitter.com/intent/tweet?text=Visiting%20https%3A%2F%2Fwww.easykeytopass.com" target="_blank" class="popup-right">
+                <i class="fa fa-twitter-square" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="twiter-right"></i>
+                <i class="w3-text-gray w3-small popuptext-right" id="twiter-right">Share on twiter</i>
+            </a>
+            <a href="https://plus.google.com/share?url=https://www.easykeytopass.com" target= "_blank" class="popup-right">
+            <i class="fa fa-google-plus-square " style="font-size:36px; color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="google-right"></i>
+            <i class="w3-text-gray w3-small popuptext-right" id="google-right">Share on Google plus</i>
+            </a>
+            <a href="https://www.facebook.com/easykeytopass" target="_blank" class="popup-right">
+                <i class="fa fa-thumbs-o-up" style="font-size:36px;color:white;cursor: pointer;position:relative;margin:0 5px" onmouseover="Popup(this)" onmouseout="Popdown(this)" social="likefacebook-right"></i>
+                <i class="w3-text-gray w3-small popuptext-right" id="likefacebook-right">Like us on facebook</i>
+            </a>
+        </div>
 </div>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
