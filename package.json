@@ -28,7 +28,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "chai": "^3.5.0",
-    "ejs": "^0",
+    "ejs": "^2",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "helmet": "^3.21.1",
