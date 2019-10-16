@@ -1,1 +1,1 @@
-web: node main.js
+web: npm install && node main.js

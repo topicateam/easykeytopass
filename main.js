@@ -1,6 +1,5 @@
 'use strict'
 const express = require('express')
-const session = require('express-session')
 const helmet = require('helmet')
 const bodyParser = require('body-parser')
 const form = require('multer')()
