@@ -45,6 +45,10 @@ app.get('/about', function (req, res, next) {
   res.render('pages/about')
 })
 
+app.get('/bontk', function (req, res, next) {
+  res.render('pages/about')
+})
+
 app.get('(error_page|*)' , function ( req , res , next) {
     res.status(404).render ('pages/error_page')
 })
