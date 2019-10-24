@@ -25,7 +25,7 @@ var language = {
         "language":"English",
         "BlockName":"BLOCK NAME",
         "blockname":"Block name:",
-        "footer-description-1" : "High secured password from easy to remember keywords",
+        "footer-description-1" : "High secured passwords from easy to remember keywords",
         "copyleft-1": "Developed by :",
         "copyleft-2": "Design by: ",
         "Powered-By": "Powered by ",
@@ -104,7 +104,8 @@ var language = {
         "Guide":"Getting Started",
         'img-getting-started-1': 'views/images/getting_started_1_en.png',
         'img-getting-started-2': 'views/images/getting_started_2_en.png',
-        'img-getting-started-3': 'views/images/getting_started_3_en.png'
+        'img-getting-started-3': 'views/images/getting_started_3_en.png',
+        'footer-repo' : "Github Repository"
 
         //End of english
     },
@@ -213,6 +214,7 @@ var language = {
         "Guide":"Bắt đầu sử dụng",
         'img-getting-started-1': 'views/images/getting_started_1_vn.png',
         'img-getting-started-2': 'views/images/getting_started_2_vn.png',
-        'img-getting-started-3': 'views/images/getting_started_3_vn.png'
+        'img-getting-started-3': 'views/images/getting_started_3_vn.png',
+        'footer-repo' : "Đóng góp tại Github"
     }
 }
