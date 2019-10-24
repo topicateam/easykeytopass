@@ -18,4 +18,4 @@ node main.js
 ### HOW TO CONTRIBUTE
 - Follow and send any issues to [Facebook fanpage](https://www.facebook.com/easykeytopass)
 - Create any issue in this repo.
-
+- The UI/UX need a lot of support from community.
